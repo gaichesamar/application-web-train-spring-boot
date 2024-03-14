@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <br/>
+            <p style="color: black !important;">M./Mme <span th:text="${name}" ></span> <span th:text="${lastName}" ></span> <br/>
+            <p style="color: black !important;">Votre compte a été créé avec succès.<br/>
+            <p style="color: black !important;">Pour terminer le processus, veuillez cliquer sur le lien ci-dessous pour confirmer votre compte:
+                <br/>
+            <ul th:each="offer : ${offerings}">
+                <li>
+                    <span th:text="${offer.name}" th:remove="tag"></span>
+                    <a th:href="@{${offer.link}}">Vérifiez-le maintenant</a>
+                </li>
+            </ul>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+    <p style="color: black !important;">Cordialement, <br/>
+                <span style="color: black !important;"><b>EasyPaie </b> | L'outil officiel de gestion de paie</span>
+            <p style="color: black !important;">Veuillez consulter les mentions légales disponibles sur le portail
+                d'information.</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

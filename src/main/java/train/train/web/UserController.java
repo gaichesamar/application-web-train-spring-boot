@@ -46,11 +46,13 @@ public class UserController {
     void delete(@PathVariable Long id){
         userService.delete(id);
     }
-    @GetMapping()
-    public List<User> getAllUsers() {
-        logger.info("get all");
-        return userService.getAllUsers();
+    @GetMapping("/users")
+    public ResponseEntity<List<User>> getAllUsers() {
+        logger.info("Fetching all users");
+        List<User> users = userService.getAllUsers();
+        return new ResponseEntity<>(users, HttpStatus.OK);
     }
+
     @GetMapping("/{id}")
     public User getUser(@PathVariable Long id) {
         logger.info("get user");
